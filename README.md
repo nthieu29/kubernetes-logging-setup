@@ -9,7 +9,7 @@ We will setup the centralize logging in Kubernetes as following:
 * A working Kubernetes cluster (or use Minikube on your local machine).
 * kubectl is installed and configured correctly.
 ## How to setup
-All the stuff were already prepared in this repository to help you **get the logging system up and running quickly in just 2 steps**:
+All the stuff were already prepared in this repository to help you **get the logging system up and running quickly in just 3 steps**:
 #### 1. Setup Graylog, MongdoDB, Elasticsearch
 
 - **Make sure you set _max_map_count_ to 262144**. It's a requirement and recommendation from Elasticsearch, you could refer [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_set_vm_max_map_count_to_at_least_262144) for the reason and how-to. 
@@ -28,6 +28,11 @@ All the stuff were already prepared in this repository to help you **get the log
     - Create the base resources for Fluent Bit: Service Account, Role, RoleBinding.
     - Create ConfigMap for Fluent Bit.
     - Create DaemonSet with Fluent Bit.
-
+#### 3. Configure Input in Graylog
+- Login to Graylog with default username:password (admin:admin) at http://localhost:9000/.
+- Choose **System/Inputs**.
+- Click **Select input**, then choose **GELF HTTP**. Click **Launch New Input**.
+- Give it a meaningful name in **Title** field, you could modify other fields, then click **Save**.
+- Your new Input will be displayed, click **Show received messages** to view your first logs which coming from Kubernetes.
 ## Where to go next
 This guide provides a minimum setup that can be used for smaller, non-critical, or test setups. For production environments, please refer [Graylog document](https://docs.graylog.org/en/3.2/pages/architecture.html#bigger-production-setup).
