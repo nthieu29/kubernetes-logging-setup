@@ -31,7 +31,7 @@ All the stuff were already prepared in this repository to help you **get the log
 #### 3. Configure Input in Graylog
 - Login to Graylog with default username:password (admin:admin) at http://localhost:9000/.
 - Choose **System/Inputs**.
-- Click **Select input**, then choose **GELF HTTP**. Click **Launch New Input**.
+- Click **Select input**, then choose **GELF TCP**. Click **Launch New Input**.
 - Give it a meaningful name in **Title** field, you could modify other fields, then click **Save**.
 - Your new Input will be displayed, click **Show received messages** to view your first logs which coming from Kubernetes.
 ## Where to go next
